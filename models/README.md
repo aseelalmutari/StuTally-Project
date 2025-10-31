@@ -16,13 +16,6 @@ Due to large file sizes of YOLO models (**from 6MB to 400MB+**), they are not in
 
 **[📥 Download All Models - Google Drive](https://drive.google.com/drive/folders/1FbXiXZtd6Zf8A_8d77Tz5kswGu5m-whX?usp=share_link)**
 
-Or
-
-**[📥 Download Models - Dropbox](dropbox_link_here)**
-
-Or
-
-**[📥 Download Models - OneDrive](onedrive_link_here)**
 
 #### 🔗 Individual Model Direct Links
 
