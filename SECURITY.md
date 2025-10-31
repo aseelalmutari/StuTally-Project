@@ -1,44 +1,44 @@
-# 🔐 سياسة الأمان (Security Policy)
+# 🔐 Security Policy
 
-## 🎯 نظرة عامة
+## 🎯 Overview
 
-نحن في StuTally نأخذ الأمان على محمل الجد. نشكر المجتمع الأمني على المساعدة في الحفاظ على أمان مستخدمينا من خلال الكشف المسؤول عن الثغرات الأمنية.
+At StuTally, we take security seriously. We thank the security community for helping to keep our users safe through responsible vulnerability disclosure.
 
 ---
 
-## 🔄 الإصدارات المدعومة
+## 🔄 Supported Versions
 
-| الإصدار | الدعم الأمني |
+| Version | Security Support |
 | ------- | ------------ |
-| 2.0.x   | ✅ مدعوم     |
-| 1.5.x   | ⚠️ دعم محدود |
-| < 1.5   | ❌ غير مدعوم |
+| 2.0.x   | ✅ Supported     |
+| 1.5.x   | ⚠️ Limited Support |
+| < 1.5   | ❌ Unsupported |
 
-**ملاحظة**: نوصي بشدة بالترقية دائماً إلى أحدث إصدار للحصول على أحدث تحديثات الأمان.
+**Note**: We strongly recommend always upgrading to the latest version for the most recent security updates.
 
 ---
 
-## 🚨 الإبلاغ عن ثغرة أمنية
+## 🚨 Reporting a Vulnerability
 
-### ⚠️ **مهم جداً**: لا تبلّغ عن الثغرات الأمنية عبر GitHub Issues العامة!
+### ⚠️ **Very Important**: Do NOT report security vulnerabilities through public GitHub Issues!
 
-إذا اكتشفت ثغرة أمنية، نرجو منك:
+If you discover a security vulnerability, please:
 
-### 1️⃣ الإبلاغ السري
+### 1️⃣ Confidential Report
 
-أبلغنا عبر البريد الإلكتروني:
+Email us at:
 
-📧 **security@stutally.project** (استبدل بالبريد الفعلي)
+📧 **caa73061@gmail.com**
 
-### 2️⃣ المعلومات المطلوبة
+### 2️⃣ Required Information
 
-يرجى تضمين:
+Please include:
 
 ```markdown
-### وصف الثغرة
-[وصف تفصيلي للثغرة]
+### Vulnerability Description
+[Detailed description of the vulnerability]
 
-### نوع الثغرة
+### Vulnerability Type
 - [ ] SQL Injection
 - [ ] XSS (Cross-Site Scripting)
 - [ ] CSRF (Cross-Site Request Forgery)
@@ -49,67 +49,67 @@
 - [ ] Denial of Service
 - [ ] Other: __________
 
-### التأثير
-[ما هو التأثير المحتمل؟]
+### Impact
+[What is the potential impact?]
 
-### الخطورة (حسب تقديرك)
-- [ ] Critical (حرج)
-- [ ] High (عالي)
-- [ ] Medium (متوسط)
-- [ ] Low (منخفض)
+### Severity (Your assessment)
+- [ ] Critical
+- [ ] High
+- [ ] Medium
+- [ ] Low
 
-### خطوات إعادة الإنتاج
+### Steps to Reproduce
 1. 
 2. 
 3. 
 
 ### Proof of Concept (PoC)
-[أضف كود أو سكربت توضيحي إن أمكن]
+[Add illustrative code or script if possible]
 
-### البيئة
+### Environment
 - StuTally Version: 
 - OS: 
 - Browser (if applicable): 
 
-### الحل المقترح (اختياري)
-[إذا كان لديك اقتراح للإصلاح]
+### Suggested Fix (Optional)
+[If you have a suggestion for the fix]
 ```
 
-### 3️⃣ ما الذي يحدث بعد ذلك؟
+### 3️⃣ What Happens Next?
 
-1. **الاستلام (خلال 24 ساعة)**: سنرسل تأكيداً باستلام تقريرك
-2. **التقييم (خلال 72 ساعة)**: سنقيّم الثغرة ونحدد خطورتها
-3. **التواصل (حسب الحاجة)**: قد نطلب معلومات إضافية
-4. **الإصلاح**: سنعمل على إصلاح الثغرة
-5. **الإصدار**: سنُصدر تحديث أمني
-6. **الإفصاح**: بعد الإصلاح، سنفصح عن الثغرة (بالتنسيق معك)
+1. **Acknowledgement (within 24 hours)**: We will send confirmation of receipt
+2. **Assessment (within 72 hours)**: We will evaluate the vulnerability and determine its severity
+3. **Communication (as needed)**: We may request additional information
+4. **Fix**: We will work on fixing the vulnerability
+5. **Release**: We will release a security update
+6. **Disclosure**: After the fix, we will disclose the vulnerability (coordinated with you)
 
-### 4️⃣ الجدول الزمني المتوقع
+### 4️⃣ Expected Timeline
 
-| الخطورة | وقت الرد الأولي | وقت الإصلاح المستهدف |
+| Severity | Initial Response Time | Target Fix Time |
 |---------|-----------------|---------------------|
-| Critical | < 24 ساعة | < 7 أيام |
-| High | < 48 ساعة | < 30 يوم |
-| Medium | < 72 ساعة | < 90 يوم |
-| Low | < 1 أسبوع | حسب الأولوية |
+| Critical | < 24 hours | < 7 days |
+| High | < 48 hours | < 30 days |
+| Medium | < 72 hours | < 90 days |
+| Low | < 1 week | As priority permits |
 
 ---
 
-## 🏆 برنامج المكافآت (Bug Bounty)
+## 🏆 Bug Bounty Program
 
-**الحالة الحالية**: قيد التطوير 🚧
+**Current Status**: In Development 🚧
 
-نحن نخطط لإطلاق برنامج مكافآت للثغرات الأمنية قريباً. في الوقت الحالي:
+We are planning to launch a bug bounty program soon. Currently:
 
-### 🌟 الاعتراف
+### 🌟 Recognition
 
-- ✅ ذكرك في ملف SECURITY.md
-- ✅ ذكرك في notes الإصدار
-- ✅ شارة "Security Researcher" على GitHub
+- ✅ Mention in SECURITY.md
+- ✅ Mention in release notes
+- ✅ "Security Researcher" badge on GitHub
 
-### 💰 المكافآت المستقبلية (مخطط)
+### 💰 Future Bounties (Planned)
 
-| الخطورة | المكافأة المتوقعة |
+| Severity | Expected Bounty |
 |---------|-------------------|
 | Critical | $500 - $2000 |
 | High | $250 - $500 |
@@ -118,160 +118,160 @@
 
 ---
 
-## 🛡️ أفضل الممارسات الأمنية
+## 🛡️ Security Best Practices
 
-### للمطورين
+### For Developers
 
-#### 1. إدارة الأسرار
+#### 1. Secret Management
 ```bash
-# ✅ استخدم متغيرات البيئة
+# ✅ Use environment variables
 export SECRET_KEY='your-secret-key'
 export JWT_SECRET_KEY='your-jwt-secret'
 
-# ❌ لا تضع الأسرار في الكود
-app.secret_key = 'hardcoded-secret'  # سيء جداً!
+# ❌ Don't put secrets in code
+app.secret_key = 'hardcoded-secret'  # Very bad!
 ```
 
-#### 2. التحقق من المدخلات
+#### 2. Input Validation
 ```python
-# ✅ التحقق والتنظيف دائماً
+# ✅ Always validate and sanitize
 from werkzeug.utils import secure_filename
 
 filename = secure_filename(file.filename)
 
-# ❌ لا تثق بالمدخلات أبداً
-filename = file.filename  # خطر!
+# ❌ Never trust inputs
+filename = file.filename  # Dangerous!
 ```
 
-#### 3. استعلامات قاعدة البيانات
+#### 3. Database Queries
 ```python
-# ✅ استخدم Parameterized Queries
+# ✅ Use Parameterized Queries
 cursor.execute("SELECT * FROM users WHERE username=?", (username,))
 
-# ❌ لا تستخدم String Concatenation
+# ❌ Don't use String Concatenation
 query = f"SELECT * FROM users WHERE username='{username}'"  # SQL Injection!
 ```
 
-#### 4. المصادقة والتفويض
+#### 4. Authentication & Authorization
 ```python
-# ✅ احمِ المسارات الحساسة
+# ✅ Protect sensitive routes
 @app.route('/admin')
 @login_required
 @admin_required
 def admin_panel():
     pass
 
-# ❌ لا تترك مسارات حساسة مفتوحة
+# ❌ Don't leave sensitive routes open
 @app.route('/admin')
 def admin_panel():
-    pass  # أي شخص يمكنه الوصول!
+    pass  # Anyone can access!
 ```
 
-### للمستخدمين
+### For Users
 
-#### 1. كلمات المرور القوية
-- ✅ استخدم كلمات مرور معقدة (12+ حرف)
-- ✅ غيّر كلمة المرور الافتراضية فوراً
-- ✅ استخدم مدير كلمات مرور
+#### 1. Strong Passwords
+- ✅ Use complex passwords (12+ characters)
+- ✅ Change default password immediately
+- ✅ Use a password manager
 
-#### 2. تحديث النظام
+#### 2. System Updates
 ```bash
-# تحقق من التحديثات بانتظام
+# Check for updates regularly
 git pull origin main
 pip install -r requirements.txt --upgrade
 ```
 
-#### 3. إعدادات الإنتاج
+#### 3. Production Settings
 ```bash
-# في الإنتاج
+# In production
 DEBUG=False
 FLASK_ENV=production
 
-# استخدم HTTPS
-# فعّل CORS بحذر
-# حدّد حجم الملفات المرفوعة
+# Use HTTPS
+# Enable CORS carefully
+# Limit uploaded file sizes
 ```
 
-#### 4. النسخ الاحتياطي
+#### 4. Backups
 ```bash
-# انسخ قاعدة البيانات بانتظام
+# Backup database regularly
 cp data/detections.db backups/detections_$(date +%Y%m%d).db
 ```
 
 ---
 
-## 🔍 الثغرات المعروفة والمعالجة
+## 🔍 Known and Resolved Vulnerabilities
 
-### v2.0.0 (الحالي)
+### v2.0.0 (Current)
 
-| تاريخ الإبلاغ | الخطورة | الوصف | الحالة | الإصدار المصلح |
+| Report Date | Severity | Description | Status | Fixed Version |
 |--------------|---------|-------|--------|----------------|
-| - | - | لا توجد ثغرات معروفة | - | - |
+| - | - | No known vulnerabilities | - | - |
 
-### الإصدارات السابقة
+### Previous Versions
 
 #### v1.5.0
-| تاريخ الإبلاغ | الخطورة | الوصف | الحالة | الإصدار المصلح |
+| Report Date | Severity | Description | Status | Fixed Version |
 |--------------|---------|-------|--------|----------------|
-| 2024-11-20 | Medium | Session Fixation | ✅ مُصلح | v1.5.1 |
-| 2024-10-15 | Low | CORS Misconfiguration | ✅ مُصلح | v1.5.2 |
+| 2024-11-20 | Medium | Session Fixation | ✅ Fixed | v1.5.1 |
+| 2024-10-15 | Low | CORS Misconfiguration | ✅ Fixed | v1.5.2 |
 
 ---
 
-## 🔐 قائمة التحقق الأمنية
+## 🔐 Security Checklist
 
-### قبل النشر في الإنتاج
+### Before Production Deployment
 
-- [ ] تغيير جميع الأسرار الافتراضية
-- [ ] تعطيل وضع DEBUG
-- [ ] تفعيل HTTPS
-- [ ] تحديد حجم أقصى للملفات المرفوعة
-- [ ] تحديث جميع المكتبات
-- [ ] مراجعة إعدادات CORS
-- [ ] تفعيل rate limiting
-- [ ] إعداد النسخ الاحتياطي التلقائي
-- [ ] مراجعة صلاحيات الملفات
-- [ ] تفعيل السجلات (logging)
-- [ ] إعداد مراقبة النظام
+- [ ] Change all default secrets
+- [ ] Disable DEBUG mode
+- [ ] Enable HTTPS
+- [ ] Set maximum file upload size
+- [ ] Update all libraries
+- [ ] Review CORS settings
+- [ ] Enable rate limiting
+- [ ] Set up automatic backups
+- [ ] Review file permissions
+- [ ] Enable logging
+- [ ] Set up system monitoring
 
-### صيانة دورية
+### Periodic Maintenance
 
-#### أسبوعياً
-- [ ] مراجعة السجلات للأنشطة المشبوهة
-- [ ] التحقق من النسخ الاحتياطية
+#### Weekly
+- [ ] Review logs for suspicious activity
+- [ ] Verify backups
 
-#### شهرياً
-- [ ] تحديث المكتبات
-- [ ] مراجعة الصلاحيات
-- [ ] اختبار النسخ الاحتياطي
+#### Monthly
+- [ ] Update libraries
+- [ ] Review permissions
+- [ ] Test backup restoration
 
-#### ربع سنوياً
-- [ ] تدقيق أمني شامل
-- [ ] مراجعة كود الأمان
-- [ ] اختبار الاختراق
+#### Quarterly
+- [ ] Comprehensive security audit
+- [ ] Security code review
+- [ ] Penetration testing
 
 ---
 
-## 📚 موارد الأمان
+## 📚 Security Resources
 
-### أدوات مفيدة
+### Useful Tools
 
-- **Bandit**: فحص أمان Python
+- **Bandit**: Python security checking
   ```bash
   pip install bandit
   bandit -r app/
   ```
 
-- **Safety**: فحص المكتبات للثغرات المعروفة
+- **Safety**: Check libraries for known vulnerabilities
   ```bash
   pip install safety
   safety check
   ```
 
-- **OWASP ZAP**: اختبار اختراق تطبيقات الويب
+- **OWASP ZAP**: Web application penetration testing
   https://www.zaproxy.org/
 
-### مراجع مهمة
+### Important References
 
 - [OWASP Top 10](https://owasp.org/www-project-top-ten/)
 - [Flask Security Best Practices](https://flask.palletsprojects.com/en/2.3.x/security/)
@@ -280,56 +280,55 @@ cp data/detections.db backups/detections_$(date +%Y%m%d).db
 
 ---
 
-## 🏅 قاعة الشهرة (Hall of Fame)
+## 🏅 Hall of Fame
 
-نشكر الباحثين الأمنيين التالية أسماؤهم على مساهماتهم في تأمين StuTally:
+We thank the following security researchers for their contributions to securing StuTally:
 
-<!-- سيتم تحديث هذا القسم عند الإبلاغ عن ثغرات -->
+<!-- This section will be updated when vulnerabilities are reported -->
 
-| الباحث | التاريخ | الثغرة | الخطورة |
+| Researcher | Date | Vulnerability | Severity |
 |---------|--------|--------|---------|
 | - | - | - | - |
 
 ---
 
-## 📞 الاتصال
+## 📞 Contact
 
-لأي استفسارات أمنية:
+For security inquiries:
 
-- 🔒 **تقارير الثغرات**: security@stutally.project
-- 💬 **أسئلة عامة**: [GitHub Discussions](https://github.com/aseelalmutari/StuTally-Project/discussions)
-- 📧 **البريد العام**: contact@stutally.project
-
----
-
-## ⚖️ سياسة الإفصاح
-
-نتبع **Responsible Disclosure Policy**:
-
-1. **الإبلاغ السري أولاً**: أبلغنا بشكل خاص
-2. **منح وقت للإصلاح**: انتظر حتى نصدر التصحيح
-3. **الإفصاح المنسق**: سننشر معاً بعد الإصلاح
-4. **الاعتراف**: سنعترف بمساهمتك علناً (إذا رغبت)
-
-### الجدول الزمني للإفصاح
-
-- **Critical/High**: 90 يوم من الإبلاغ
-- **Medium**: 120 يوم من الإبلاغ
-- **Low**: 180 يوم من الإبلاغ
+- 🔒 **Vulnerability Reports**: caa73061@gmail.com
+- 💬 **General Questions**: [GitHub Discussions](https://github.com/aseelalmutari/StuTally-Project/discussions)
+- 📧 **General Email**: caa73061@gmail.com
 
 ---
 
-## 📝 التحديثات
+## ⚖️ Disclosure Policy
 
-سيتم تحديث هذه السياسة بانتظام. آخر تحديث: **أكتوبر 2025**
+We follow **Responsible Disclosure Policy**:
+
+1. **Report privately first**: Email us confidentially
+2. **Allow time for fix**: Wait until we release the patch
+3. **Coordinated disclosure**: We'll publish together after the fix
+4. **Recognition**: We'll acknowledge your contribution publicly (if you wish)
+
+### Disclosure Timeline
+
+- **Critical/High**: 90 days from report
+- **Medium**: 120 days from report
+- **Low**: 180 days from report
+
+---
+
+## 📝 Updates
+
+This policy will be updated regularly. Last updated: **October 2025**
 
 ---
 
 <div align="center">
 
-**الأمان مسؤولية الجميع. شكراً لمساعدتنا في حماية مستخدمي StuTally! 🛡️**
+**Security is everyone's responsibility. Thank you for helping us protect StuTally users! 🛡️**
 
-[⬆️ العودة للأعلى](#-سياسة-الأمان-security-policy)
+[⬆️ Back to Top](#-security-policy-1)
 
 </div>
-
