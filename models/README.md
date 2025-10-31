@@ -1,98 +1,98 @@
-# 📦 نماذج YOLO - دليل التحميل
+# 📦 YOLO Models - Download Guide
 
-هذا المجلد يحتوي على نماذج YOLO المستخدمة في StuTally للكشف عن الأشخاص والتصنيف.
-
----
-
-## 🔗 تحميل النماذج
-
-### ⚠️ ملاحظة مهمة
-
-بسبب الحجم الكبير لنماذج YOLO (**من 6MB إلى 400MB+**)، لا يتم تضمينها في مستودع GitHub.
-
-### 📥 روابط التحميل
-
-#### 🌐 الرابط الرئيسي (موصى به)
-
-**[📥 تحميل جميع النماذج - Google Drive](https://drive.google.com/drive/folders/1FbXiXZtd6Zf8A_8d77Tz5kswGu5m-whX?usp=share_link)**
-
-أو
-
-**[📥 تحميل النماذج - Dropbox](رابط_dropbox_هنا)**
-
-أو
-
-**[📥 تحميل النماذج - OneDrive](رابط_onedrive_هنا)**
-
-#### 🔗 روابط مباشرة للنماذج الفردية
-
-إذا كنت تريد تحميل نموذج محدد فقط:
-
-| النموذج | الحجم | الوصف | رابط التحميل |
-|---------|------|-------|---------------|
-| `yolov8s.pt` | ~11MB | النموذج الافتراضي (موصى به) | [تحميل](رابط_مباشر) |
-| `yolov8m.pt` | ~26MB | نموذج متوسط (دقة أعلى) | [تحميل](رابط_مباشر) |
-| `yolov8l.pt` | ~44MB | نموذج كبير (دقة عالية) | [تحميل](رابط_مباشر) |
-| `yolov11x.pt` | ~136MB | نموذج v11 كبير جداً | [تحميل](رابط_مباشر) |
-| `best.pt` | ~تحديد الحجم~ | **النموذج المخصص** (تصنيف المراحل) | [تحميل](رابط_مباشر) |
+This folder contains YOLO models used in StuTally for person detection and classification.
 
 ---
 
-## 📂 التثبيت
+## 🔗 Download Models
 
-### الطريقة 1: التحميل اليدوي
+### ⚠️ Important Note
 
-1. **حمّل النماذج** من الروابط أعلاه
-2. **فك الضغط** (إن كانت مضغوطة)
-3. **انقل الملفات** إلى مجلد `models/`:
+Due to large file sizes of YOLO models (**from 6MB to 400MB+**), they are not included in the GitHub repository.
+
+### 📥 Download Links
+
+#### 🌐 Main Link (Recommended)
+
+**[📥 Download All Models - Google Drive](https://drive.google.com/drive/folders/1FbXiXZtd6Zf8A_8d77Tz5kswGu5m-whX?usp=share_link)**
+
+Or
+
+**[📥 Download Models - Dropbox](dropbox_link_here)**
+
+Or
+
+**[📥 Download Models - OneDrive](onedrive_link_here)**
+
+#### 🔗 Individual Model Direct Links
+
+If you want to download a specific model only:
+
+| Model | Size | Description | Download Link |
+|-------|------|-------------|---------------|
+| `yolov8s.pt` | ~11MB | Default model (recommended) | [Download](direct_link) |
+| `yolov8m.pt` | ~26MB | Medium model (higher accuracy) | [Download](direct_link) |
+| `yolov8l.pt` | ~44MB | Large model (high accuracy) | [Download](direct_link) |
+| `yolov11x.pt` | ~136MB | Very large v11 model | [Download](direct_link) |
+| `best.pt` | ~size_tbd~ | **Custom Model** (stage classification) | [Download](direct_link) |
+
+---
+
+## 📂 Installation
+
+### Method 1: Manual Download
+
+1. **Download models** from the links above
+2. **Extract** (if compressed)
+3. **Move files** to `models/` folder:
 
 ```bash
-# من مجلد التحميل
+# From download folder
 cp ~/Downloads/yolov8s.pt /Users/youuser/Desktop/StuTally/models/
 cp ~/Downloads/best.pt /Users/youuser/Desktop/StuTally/models/
 
-# أو باستخدام مسار نسبي
+# Or using relative path
 cd /Users/youuser/Desktop/StuTally
 cp ~/Downloads/*.pt models/
 ```
 
-### الطريقة 2: استخدام wget/curl (إذا كان لديك رابط مباشر)
+### Method 2: Using wget/curl (if you have a direct link)
 
 ```bash
 cd models/
 
-# باستخدام wget
-wget -O yolov8s.pt "رابط_تحميل_مباشر"
+# Using wget
+wget -O yolov8s.pt "download_link"
 
-# أو باستخدام curl
-curl -L -o yolov8s.pt "رابط_تحميل_مباشر"
+# Or using curl
+curl -L -o yolov8s.pt "download_link"
 ```
 
-### الطريقة 3: استخدام gdown (للتحميل من Google Drive)
+### Method 3: Using gdown (for Google Drive downloads)
 
 ```bash
-# تثبيت gdown
+# Install gdown
 pip install gdown
 
-# تحميل من Google Drive
+# Download from Google Drive
 cd models/
 gdown "google_drive_file_id"
 
-# أو تحميل مجلد كامل
+# Or download entire folder
 gdown --folder "google_drive_folder_id"
 ```
 
 ---
 
-## ✅ التحقق من التثبيت
+## ✅ Verify Installation
 
-بعد التحميل، تأكد من وجود النماذج:
+After downloading, make sure models exist:
 
 ```bash
 cd models/
 ls -lh
 
-# يجب أن ترى:
+# You should see:
 # -rw-r--r--  1 user  staff   11M  yolov8s.pt
 # -rw-r--r--  1 user  staff   26M  yolov8m.pt
 # -rw-r--r--  1 user  staff   44M  yolov8l.pt
@@ -100,7 +100,7 @@ ls -lh
 # -rw-r--r--  1 user  staff   XXM  best.pt
 ```
 
-أو باستخدام Python:
+Or using Python:
 
 ```python
 import os
@@ -109,7 +109,7 @@ from pathlib import Path
 models_dir = Path(__file__).parent
 models = list(models_dir.glob('*.pt'))
 
-print("النماذج المثبتة:")
+print("Installed models:")
 for model in models:
     size_mb = model.stat().st_size / (1024 * 1024)
     print(f"  ✓ {model.name} ({size_mb:.1f} MB)")
@@ -117,30 +117,30 @@ for model in models:
 
 ---
 
-## 📋 النماذج المطلوبة
+## 📋 Required Models
 
-### الحد الأدنى (Essential)
+### Essential (Minimum)
 
-- ✅ **yolov8s.pt** - النموذج الافتراضي (مطلوب)
+- ✅ **yolov8s.pt** - Default model (required)
 
-### موصى به (Recommended)
+### Recommended
 
-- ✅ **yolov8s.pt** - للاستخدام العام
-- ✅ **best.pt** - للتصنيف المخصص (تصنيف المراحل الدراسية)
+- ✅ **yolov8s.pt** - For general use
+- ✅ **best.pt** - For custom classification (academic stage classification)
 
-### اختياري (Optional)
+### Optional
 
-- ⭕ **yolov8m.pt** - لدقة أعلى
-- ⭕ **yolov8l.pt** - لدقة أعلى (يحتاج GPU)
-- ⭕ **yolov11x.pt** - أحدث نموذج (يحتاج GPU قوي)
+- ⭕ **yolov8m.pt** - For higher accuracy
+- ⭕ **yolov8l.pt** - For higher accuracy (needs GPU)
+- ⭕ **yolov11x.pt** - Latest model (needs powerful GPU)
 
 ---
 
-## 🔄 التحميل التلقائي
+## 🔄 Auto-Download
 
-### للنماذج القياسية من Ultralytics
+### For Standard Ultralytics Models
 
-النماذج التالية سيتم تنزيلها **تلقائياً** من Ultralytics عند أول استخدام:
+The following models will be downloaded **automatically** from Ultralytics on first use:
 - `yolov8n.pt`
 - `yolov8s.pt`
 - `yolov8m.pt`
@@ -148,142 +148,142 @@ for model in models:
 - `yolov8x.pt`
 
 ```python
-# سيتم التنزيل تلقائياً عند التشغيل
+# Will be downloaded automatically on first run
 from ultralytics import YOLO
-model = YOLO('yolov8s.pt')  # سيُحمّل تلقائياً إن لم يكن موجوداً
+model = YOLO('yolov8s.pt')  # Will download automatically if not found
 ```
 
-### للنموذج المخصص
+### For Custom Model
 
-⚠️ **النموذج المخصص `best.pt` يجب تحميله يدوياً** لأنه غير متاح على Ultralytics.
+⚠️ **Custom model `best.pt` must be downloaded manually** as it's not available on Ultralytics.
 
 ---
 
-## 🚫 ما لا يجب فعله
+## 🚫 What NOT to Do
 
-❌ **لا ترفع النماذج إلى Git**
+❌ **Do not upload models to Git**
 ```bash
-# ملف .gitignore يمنع ذلك بالفعل:
+# .gitignore already prevents this:
 models/*.pt
 ```
 
-❌ **لا تشارك النماذج المخصصة بدون إذن**
+❌ **Do not share custom models without permission**
 
-❌ **لا تحذف ملف `.gitkeep`** (يحافظ على المجلد في Git)
+❌ **Do not delete `.gitkeep` file** (keeps folder in Git)
 
 ---
 
-## 📐 مواصفات النماذج
+## 📐 Model Specifications
 
 ### YOLOv8 Models
 
-| النموذج | المعاملات | الحجم | mAP | السرعة (CPU) | السرعة (GPU) |
-|---------|-----------|------|-----|--------------|--------------|
+| Model | Parameters | Size | mAP | Speed (CPU) | Speed (GPU) |
+|-------|-----------|------|-----|-------------|-------------|
 | YOLOv8n | 3.2M | 6.4MB | 37.3 | 80ms | 1.2ms |
 | YOLOv8s | 11.2M | 22.5MB | 44.9 | 128ms | 1.9ms |
 | YOLOv8m | 25.9M | 52MB | 50.2 | 234ms | 3.6ms |
 | YOLOv8l | 43.7M | 87.7MB | 52.9 | 375ms | 5.7ms |
 | YOLOv8x | 68.2M | 136.7MB | 53.9 | 479ms | 8.4ms |
 
-### النموذج المخصص (best.pt)
+### Custom Model (best.pt)
 
-- **الغرض**: تصنيف المرحلة الدراسية (High School / Middle School)
-- **المعمارية**: مبني على YOLO
-- **التدريب**: مدرب على dataset مخصص
-- **الفئات**: High, Middle, students
+- **Purpose**: Academic stage classification (High School / Middle School)
+- **Architecture**: Built on YOLO
+- **Training**: Trained on custom dataset
+- **Classes**: High, Middle, students
 
 ---
 
-## 🔧 استكشاف الأخطاء
+## 🔧 Troubleshooting
 
-### المشكلة: "Model not found"
+### Issue: "Model not found"
 
 ```bash
-# الحل: تأكد من وجود النموذج
+# Solution: Verify model exists
 ls -l models/*.pt
 
-# إذا لم يكن موجوداً، حمّله من الرابط أعلاه
+# If not found, download from link above
 ```
 
-### المشكلة: "Permission denied"
+### Issue: "Permission denied"
 
 ```bash
-# الحل: تعديل الصلاحيات
+# Solution: Fix permissions
 chmod 644 models/*.pt
 ```
 
-### المشكلة: "Corrupted model file"
+### Issue: "Corrupted model file"
 
 ```bash
-# الحل: أعد تحميل النموذج
+# Solution: Re-download model
 rm models/yolov8s.pt
-# ثم حمّل من جديد
+# Then download again
 ```
 
-### المشكلة: بطء التحميل
+### Issue: Slow Download
 
 ```bash
-# نصيحة: استخدم download manager
-# أو استخدم rclone لـ Google Drive:
+# Tip: Use download manager
+# Or use rclone for Google Drive:
 pip install rclone
 rclone copy gdrive:models/ models/
 ```
 
 ---
 
-## 💾 تخزين النماذج
+## 💾 Model Storage
 
-### مساحة التخزين المطلوبة
+### Required Storage Space
 
-- **الحد الأدنى**: ~15MB (yolov8s فقط)
-- **موصى به**: ~50MB (yolov8s + best.pt)
-- **جميع النماذج**: ~300MB
+- **Minimum**: ~15MB (yolov8s only)
+- **Recommended**: ~50MB (yolov8s + best.pt)
+- **All Models**: ~300MB
 
-### مكان التخزين
+### Storage Location
 
 ```
 📁 models/
-├── 📄 README.md (هذا الملف)
-├── 📄 .gitkeep (للحفاظ على المجلد)
-├── 🚫 yolov8s.pt (تحميل)
-├── 🚫 yolov8m.pt (اختياري)
-├── 🚫 yolov8l.pt (اختياري)
-├── 🚫 yolov11x.pt (اختياري)
-└── 🚫 best.pt (تحميل للنموذج المخصص)
+├── 📄 README.md (this file)
+├── 📄 .gitkeep (keeps folder in Git)
+├── 🚫 yolov8s.pt (download)
+├── 🚫 yolov8m.pt (optional)
+├── 🚫 yolov8l.pt (optional)
+├── 🚫 yolov11x.pt (optional)
+└── 🚫 best.pt (download for custom model)
 ```
 
-🚫 = ممنوع من Git (.gitignore)
+🚫 = Excluded from Git (.gitignore)
 
 ---
 
-## 🆘 الدعم
+## 🆘 Support
 
-إذا واجهت مشكلة في تحميل النماذج:
+If you encounter issues downloading models:
 
-1. 📖 راجع [README الرئيسي](../README.md)
-2. 💬 افتح [GitHub Discussion](https://github.com/aseelalmutari/StuTally-Project/discussions)
-3. 🐛 أبلغ عن [Issue](https://github.com/aseelalmutari/StuTally-Project/issues)
-4. 📧 راسلنا: support@stutally.project
+1. 📖 Check [Main README](../README.md)
+2. 💬 Open [GitHub Discussion](https://github.com/aseelalmutari/StuTally-Project/discussions)
+3. 🐛 Report [Issue](https://github.com/aseelalmutari/StuTally-Project/issues)
+4. 📧 Email us: caa73061@gmail.com
 
 ---
 
-## 📝 ملاحظات
+## 📝 Notes
 
-- النماذج محمية بحقوق النشر لأصحابها (Ultralytics, Roboflow)
-- استخدام النماذج يخضع لتراخيصها الأصلية
-- للاستخدام التجاري، راجع تراخيص Ultralytics YOLO
+- Models are copyrighted by their owners (Ultralytics, Roboflow)
+- Model usage subject to their original licenses
+- For commercial use, review Ultralytics YOLO licenses
 
 ---
 
 <div align="center">
 
-**بعد التحميل، أنت جاهز للبدء! 🚀**
+**After download, you're ready to start! 🚀**
 
-[⬆️ العودة للأعلى](#-نماذج-yolo---دليل-التحميل)
+[⬆️ Back to Top](#-yolo-models---download-guide)
 
 </div>
 
 ---
 
-**آخر تحديث**: أكتوبر 2025
+**Last Updated**: October 2025
 
