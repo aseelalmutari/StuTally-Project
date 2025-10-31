@@ -1,0 +1,181 @@
+# ===================================
+# Environment Variables
+# ===================================
+.env
+.env.local
+.env.*.local
+
+# ===================================
+# Python
+# ===================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Virtual Environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# ===================================
+# Project Specific - Data & Models
+# ===================================
+# User uploads
+uploads/
+!uploads/.gitkeep
+
+# YOLO models (too large for git)
+models/*.pt
+!models/.gitkeep
+
+# Processed images
+static/processed_images/*
+!static/processed_images/.gitkeep
+
+# Database files
+*.db
+*.db-journal
+*.sqlite
+*.sqlite3
+data/*.db
+data/*.sqlite
+
+# Logs
+logs/
+*.log
+!logs/.gitkeep
+app.log
+
+# ===================================
+# IDEs and Editors
+# ===================================
+# VSCode
+.vscode/
+.history/
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ===================================
+# Operating Systems
+# ===================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ===================================
+# Testing
+# ===================================
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+nosetests.xml
+
+# ===================================
+# Documentation
+# ===================================
+docs/_build/
+site/
+
+# ===================================
+# Docker
+# ===================================
+*.env.docker
+docker-compose.override.yml
+
+# ===================================
+# Jupyter Notebooks
+# ===================================
+.ipynb_checkpoints
+*.ipynb
+
+# ===================================
+# Temporary Files
+# ===================================
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ===================================
+# Archive Files (old test scripts)
+# ===================================
+scripts/archive/

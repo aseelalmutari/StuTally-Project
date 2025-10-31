@@ -1,0 +1,440 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>StuTally Detection</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #563d7c !important;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+        }
+        .main-container {
+            padding: 40px 20px;
+        }
+        .preview-container, .form-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        .preview-placeholder {
+            height: 400px;
+            background-color: #e9ecef;
+            border: 2px dashed #6c757d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            border-radius: 8px;
+        }
+        .video-feed, .processed-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .btn-primary {
+            background-color: #563d7c;
+            border-color: #563d7c;
+        }
+        .alert {
+            margin-top: 20px;
+        }
+        /* Added styling for class type message */
+        #class_type_message {
+            color: #198754; /* Bootstrap's 'success' color */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">StuTally Detection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/analytics">Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-container">
+        <div class="row g-4">
+            <!-- Preview Section -->
+            <div class="col-md-7">
+                <div class="preview-container">
+                    <h3 class="mb-4">Preview</h3>
+                    <div id="preview_placeholder" class="preview-placeholder">
+                        Preview will be displayed here
+                    </div>
+                    <div id="video_feed_container" class="d-none">
+                        <img id="video_feed" src="" class="video-feed" alt="Video Feed">
+                    </div>
+                    <div id="image_feed_container" class="d-none">
+                        <img src="" class="processed-image" alt="Processed Image">
+                    </div>
+                    <!-- Added class type message container -->
+                    <div id="class_type_message" class="mt-3 text-center fw-bold" style="font-size: 1.2em;"></div>
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="col-md-5">
+                <div class="form-container">
+                    <h3 class="mb-4">Upload and Process</h3>
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <!-- File Upload -->
+                        <div class="mb-3">
+                            <label for="file" class="form-label">Select File:</label>
+                            <input class="form-control" type="file" id="file" name="file" accept="image/*,video/*" required>
+                        </div>
+
+                        <!-- Model Selection -->
+                        <div class="mb-3">
+                            <label for="model" class="form-label">Select Model:</label>
+                            <select name="model" id="model" class="form-select" required>
+                                <!-- Model options -->
+                                <!-- Model options -->
+                                <option value="yolov8n.pt">YOLOv8n</option>
+                                <option value="yolov8s.pt" selected>YOLOv8s</option>
+                                <option value="yolov8m.pt">YOLOv8m</option>
+                                <option value="yolov8l.pt">YOLOv8l</option>
+                                <option value="yolov8x.pt">YOLOv8x</option>
+                                <option value="yolo11n.pt">YOLOv11n</option>
+                                <option value="yolo11s.pt">YOLOv11s</option>
+                                <option value="yolo11m.pt">YOLOv11m</option>
+                                <option value="yolo11l.pt">YOLOv11l</option>
+                                <option value="yolo11x.pt">YOLOv11x</option>
+                                <option value="best.pt">Best Model (High & Middle)</option>
+                            </select>
+                        </div>
+
+                        <!-- Counting Line Toggle -->
+                        <div class="form-check mb-3 d-none" id="line-toggle-group">
+                            <input class="form-check-input" type="checkbox" id="line-toggle" name="counting_line_enabled">
+                            <label class="form-check-label" for="line-toggle">Enable Counting Line</label>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary">Process</button>
+                    </form>
+
+                    <!-- Alert Messages -->
+                    <div id="alert-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Progress Bar Modal -->
+    <div class="modal fade" id="progressModal" tabindex="-1" aria-labelledby="progressModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- Add id here -->
+            <h5 class="modal-title text-center" id="progressModalLabel">Processing</h5>
+          </div>
+          <div class="modal-body">
+            <div class="progress">
+              <div id="progressBar" class="progress-bar" role="progressbar"
+                   style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const fileInput = document.getElementById('file');
+            const modelSelect = document.getElementById('model');
+            const lineToggleGroup = document.getElementById('line-toggle-group');
+            const lineToggle = document.getElementById('line-toggle');
+            const previewPlaceholder = document.getElementById('preview_placeholder');
+            const videoFeedContainer = document.getElementById('video_feed_container');
+            const imageFeedContainer = document.getElementById('image_feed_container');
+            const videoFeed = document.getElementById('video_feed');
+            const imageFeed = imageFeedContainer.querySelector('img');
+            const alertContainer = document.getElementById('alert-container');
+            const uploadForm = document.getElementById('upload-form');
+            const progressModalTitle = document.getElementById('progressModalLabel');
+            const classTypeMessage = document.getElementById('class_type_message'); // Added
+            
+            // متغير عام لتتبع الـ request الحالي
+            let currentController = null;
+            let currentTimeoutId = null;
+
+            // Update UI based on selected file
+            fileInput.addEventListener('change', function () {
+                const file = this.files[0];
+                if (file) {
+                    const fileType = file.type;
+                    if (fileType.startsWith('video/')) {
+                        lineToggleGroup.classList.remove('d-none');
+                        showPreview('video');
+                    } else if (fileType.startsWith('image/')) {
+                        lineToggleGroup.classList.add('d-none');
+                        lineToggle.checked = false;
+                        showPreview('image');
+                    } else {
+                        showAlert('Unsupported file type.', 'danger');
+                        resetPreview();
+                    }
+                } else {
+                    resetPreview();
+                }
+            });
+
+            // Hide "Enable Counting Line" when "Best Model (High & Middle)" is selected
+            modelSelect.addEventListener('change', function () {
+                const selectedModel = this.value;
+                if (selectedModel === 'best.pt') {
+                    lineToggleGroup.classList.add('d-none');
+                    lineToggle.checked = false;
+                } else {
+                    // Only show the counting line option if a video is selected
+                    const file = fileInput.files[0];
+                    if (file && file.type.startsWith('video/')) {
+                        lineToggleGroup.classList.remove('d-none');
+                    }
+                }
+            });
+
+            // Handle form submission
+            uploadForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                
+                // إلغاء أي طلبات سابقة عالقة
+                if (currentController) {
+                    console.log('Cancelling previous request...');
+                    currentController.abort();
+                }
+                if (currentTimeoutId) {
+                    clearTimeout(currentTimeoutId);
+                }
+                
+                const formData = new FormData(uploadForm);
+                const file = fileInput.files[0];
+
+                if (!file) {
+                    showAlert('Please select a file.', 'warning');
+                    return;
+                }
+
+                // Get selected model
+                const selectedModel = modelSelect.value;
+                
+                // Update the progress modal title based on file type
+                if (file.type.startsWith('video/')) {
+                    progressModalTitle.innerText = 'Processing Video...';
+                } else if (file.type.startsWith('image/')) {
+                    progressModalTitle.innerText = 'Processing Image...';
+                } else {
+                    progressModalTitle.innerText = 'Processing...';
+                }
+
+                // Show progress modal
+                const progressModal = new bootstrap.Modal(document.getElementById('progressModal'), {
+                    backdrop: 'static',
+                    keyboard: false
+                });
+                progressModal.show();
+
+                // Simulate progress
+                let progress = 0;
+                const progressBar = document.getElementById('progressBar');
+                progressBar.classList.remove('progress-bar-striped', 'progress-bar-animated');
+                let statusMessages = [
+                    'Uploading file...',
+                    'Loading model...',
+                    'Initializing...',
+                    'Processing...'
+                ];
+                let messageIndex = 0;
+                
+                const progressInterval = setInterval(() => {
+                    if (progress >= 75) {
+                        clearInterval(progressInterval);
+                        // Switch to indeterminate progress
+                        progressBar.classList.add('progress-bar-striped', 'progress-bar-animated');
+                        progressBar.style.width = `100%`;
+                        progressModalTitle.innerText = 'Processing... (this may take 10-30 seconds for large models)';
+                    } else {
+                        progress += 15;
+                        progressBar.style.width = `${progress}%`;
+                        progressBar.innerText = `${progress}%`;
+                        if (messageIndex < statusMessages.length) {
+                            progressModalTitle.innerText = statusMessages[messageIndex];
+                            messageIndex++;
+                        }
+                    }
+                }, 800);
+
+                // إنشاء controller جديد للطلب الحالي
+                currentController = new AbortController();
+                currentTimeoutId = setTimeout(() => {
+                    console.log('Request timeout after 120 seconds');
+                    currentController.abort();
+                }, 120000); // 120 seconds
+                
+                fetch('/', {
+                    method: 'POST',
+                    body: formData,
+                    signal: currentController.signal
+                })
+                .then(response => {
+                    clearTimeout(currentTimeoutId);
+                    currentTimeoutId = null;
+                    if (!response.ok) {
+                        throw new Error('Server error');
+                    }
+                    return response.json();
+                })
+                .catch(error => {
+                    if (currentTimeoutId) {
+                        clearTimeout(currentTimeoutId);
+                        currentTimeoutId = null;
+                    }
+                    if (error.name === 'AbortError') {
+                        throw new Error('Request timeout or cancelled - processing took too long');
+                    }
+                    throw error;
+                })
+                .then(data => {
+                    // تنظيف المتغيرات العامة
+                    currentController = null;
+                    if (currentTimeoutId) {
+                        clearTimeout(currentTimeoutId);
+                        currentTimeoutId = null;
+                    }
+                    
+                    clearInterval(progressInterval);
+                    progressBar.classList.remove('progress-bar-striped', 'progress-bar-animated');
+                    progressBar.style.width = `100%`;
+                    progressBar.innerText = `100%`;
+                    // Hide progress modal after a short delay
+                    setTimeout(() => {
+                        progressModal.hide();
+                        if (data.status === 'success') {
+                            if (file.type.startsWith('video/')) {
+                                // Update the video feed URL with the new video_id
+                                videoFeed.src = '/video_feed/' + data.video_id + '?' + new Date().getTime();
+                                showPreview('video');
+                                classTypeMessage.innerText = ''; // Clear any previous messages
+                            } else if (file.type.startsWith('image/')) {
+                                // Stop the video feed
+                                videoFeed.src = '';
+                                imageFeed.src = data.processed_image + '?' + new Date().getTime();
+                                showPreview('image');
+                                if (data.class_type) {
+                                    classTypeMessage.innerText = `Educational Level: ${data.class_type}`;
+                                } else {
+                                    classTypeMessage.innerText = ''; // Clear if not present
+                                }
+                            }
+                            showAlert(data.message, 'success');
+                        } else {
+                            showAlert(`Error: ${data.message}`, 'danger');
+                            resetPreview();
+                            classTypeMessage.innerText = ''; // Clear any messages on error
+                        }
+                    }, 500);
+                })
+                .catch(error => {
+                    // تنظيف المتغيرات العامة في حالة الخطأ
+                    currentController = null;
+                    if (currentTimeoutId) {
+                        clearTimeout(currentTimeoutId);
+                        currentTimeoutId = null;
+                    }
+                    
+                    clearInterval(progressInterval);
+                    progressBar.classList.remove('progress-bar-striped', 'progress-bar-animated');
+                    progressBar.style.width = `100%`;
+                    progressBar.style.backgroundColor = '#dc3545';
+                    progressBar.innerText = `Error`;
+                    
+                    setTimeout(() => {
+                        progressModal.hide();
+                        console.error('Error:', error);
+                        
+                        let errorMessage = 'An error occurred during processing.';
+                        if (error.message.includes('timeout') || error.message.includes('timed out') || error.message.includes('cancelled')) {
+                            errorMessage = 'Processing timeout or cancelled. Please try again or use a smaller model.';
+                        } else if (error.message.includes('network') || error.message.includes('fetch')) {
+                            errorMessage = 'Network error. Please check your connection and try again.';
+                        }
+                        
+                        showAlert(errorMessage, 'danger');
+                        resetPreview();
+                        classTypeMessage.innerText = ''; // Clear any messages on error
+                    }, 1000);
+                });
+            });
+
+            // Helper functions
+            function showPreview(type) {
+                previewPlaceholder.classList.add('d-none');
+                if (type === 'video') {
+                    videoFeedContainer.classList.remove('d-none');
+                    imageFeedContainer.classList.add('d-none');
+                } else if (type === 'image') {
+                    imageFeedContainer.classList.remove('d-none');
+                    videoFeedContainer.classList.add('d-none');
+                }
+            }
+
+            function resetPreview() {
+                previewPlaceholder.classList.remove('d-none');
+                videoFeedContainer.classList.add('d-none');
+                imageFeedContainer.classList.add('d-none');
+                lineToggleGroup.classList.add('d-none');
+                lineToggle.checked = false;
+
+                // Clear the video feed src to stop any existing video feed
+                videoFeed.src = '';
+                imageFeed.src = '';
+                classTypeMessage.innerText = ''; // Clear class type message
+            }
+
+            function showAlert(message, type) {
+                alertContainer.innerHTML = `
+                    <div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                        ${message}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

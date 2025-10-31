@@ -1,0 +1,453 @@
+<!-- templates/analytics.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags and title -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StuTally Detection - Analytics Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Plotly JS -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        /* تنسيقات محدثة للصفحة */
+        body {
+            background-color: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .navbar {
+            background-color: #563d7c !important;
+        }
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        .main-container {
+            padding: 40px 20px;
+        }
+        .kpi-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-bottom: 30px;
+        }
+        .kpi-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            width: 22%;
+            min-width: 200px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        .kpi-card h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #3b5998;
+        }
+        .kpi-card p {
+            font-size: 1.2rem;
+            margin: 0;
+            color: #555555;
+        }
+        .chart-container {
+            margin-bottom: 30px;
+        }
+        .chart-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .chart {
+            width: 100%;
+            height: 400px;
+        }
+        .filter-form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .download-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-primary, .btn-success, .btn-danger {
+            margin: 5px;
+            width: 150px;
+        }
+        @media (max-width: 768px) {
+            .kpi-card {
+                width: 45%;
+            }
+        }
+        @media (max-width: 576px) {
+            .kpi-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">StuTally Detection</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color: #ffffff;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/analytics/">Analytics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-container">
+        <h3 class="text-center mb-4">Student Analytics Dashboard</h3>
+
+        <!-- Filter Form -->
+        <div class="filter-form">
+            <form id="filter-form">
+                <div class="row g-3">
+                    <!-- Video Selection -->
+                    <div class="col-md-3">
+                        <label for="video-id" class="form-label">Select Video</label>
+                        <select id="video-id" class="form-select">
+                            <option value="">All Videos</option>
+                        </select>
+                    </div>
+                    <!-- Statistic Type Selection -->
+                    <div class="col-md-3">
+                        <label for="stat-type" class="form-label">Statistic Type</label>
+                        <select id="stat-type" class="form-select">
+                            <option value="total_students">Total Students</option>
+                            <option value="entry_exit">Entry and Exit Count</option>
+                            <option value="academic_stages">Academic Stages</option>
+                        </select>
+                    </div>
+                    <!-- Date Selection -->
+                    <div class="col-md-3">
+                        <label for="date" class="form-label">Select Date</label>
+                        <input type="date" id="date" class="form-control">
+                    </div>
+                    <!-- Time Range Selection -->
+                    <div class="col-md-3">
+                        <label for="time-range" class="form-label">Time Range</label>
+                        <select id="time-range" class="form-select">
+                            <option value="all_time">All Time</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="morning">Morning</option>
+                            <option value="afternoon">Afternoon</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row g-3 mt-2">
+                    <!-- Start Time -->
+                    <div class="col-md-3">
+                        <label for="start-time" class="form-label">Start Time</label>
+                        <input type="time" id="start-time" class="form-control">
+                    </div>
+                    <!-- End Time -->
+                    <div class="col-md-3">
+                        <label for="end-time" class="form-label">End Time</label>
+                        <input type="time" id="end-time" class="form-control">
+                    </div>
+                    <!-- Apply Filter Button -->
+                    <div class="col-md-3 align-self-end">
+                        <button type="button" onclick="fetchData()" class="btn btn-primary w-100">Apply Filter</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- KPIs Section -->
+        <div class="kpi-container" id="kpi-container">
+            <!-- KPIs will be populated here -->
+        </div>
+
+        <!-- Charts Section -->
+        <div class="chart-container">
+            <!-- Students Over Time Chart -->
+            <div class="chart-box mb-4">
+                <div class="chart-title">Total Students Over Time</div>
+                <div id="students-over-time-chart" class="chart"></div>
+            </div>
+            <!-- Heatmap Chart -->
+            <div class="chart-box mb-4">
+                <div class="chart-title">Peak Times Heatmap</div>
+                <div id="heatmap-chart" class="chart"></div>
+            </div>
+            <!-- Stage Comparison Chart -->
+            <div class="chart-box mb-4">
+                <div class="chart-title">Stage Comparison</div>
+                <div id="stage-comparison-chart" class="chart"></div>
+            </div>
+        </div>
+
+        <!-- Download Buttons -->
+        <div class="download-container">
+            <a href="/analytics/download" class="btn btn-primary">Download CSV</a>
+            <a href="/analytics/download_excel" class="btn btn-success">Download Excel</a>
+            <a href="/analytics/download_pdf" class="btn btn-danger">Download PDF</a>
+        </div>
+    </div>
+
+    <!-- JavaScript Dependencies -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Fetch the list of videos and populate the dropdown
+        function fetchVideos() {
+            fetch('/api/videos')
+                .then(response => response.json())
+                .then(videos => {
+                    const videoSelect = document.getElementById('video-id');
+                    videoSelect.innerHTML = '<option value="">All Videos</option>';
+                    if (videos.length === 0) {
+                        const option = document.createElement('option');
+                        option.value = '';
+                        option.textContent = 'No videos available';
+                        videoSelect.appendChild(option);
+                    } else {
+                        videos.forEach(video => {
+                            const option = document.createElement('option');
+                            option.value = video.video_id;
+                            option.textContent = `Video ${video.video_id} - Uploaded at ${video.upload_time}`;
+                            videoSelect.appendChild(option);
+                        });
+                        videoSelect.addEventListener('change', fetchData);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching videos:', error);
+                });
+        }
+
+        // Fetch data and render KPIs and charts
+        function fetchData() {
+            fetchKPIs();
+            fetchStudentsOverTime();
+            fetchHeatmapData();
+            fetchStageComparisonData();
+        }
+
+        // Fetch and render KPIs
+        function fetchKPIs() {
+            const videoId = document.getElementById('video-id').value;
+            let url = `/analytics/kpis`;
+            if (videoId) {
+                url += `?video_id=${videoId}`;
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    renderKPIs(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching KPIs:', error);
+                });
+        }
+
+        function renderKPIs(data) {
+            const kpiContainer = document.getElementById('kpi-container');
+            kpiContainer.innerHTML = '';
+
+            // Total Students KPI
+            const totalStudentsKPI = document.createElement('div');
+            totalStudentsKPI.className = 'kpi-card';
+            totalStudentsKPI.innerHTML = `
+                <h2>${data.total_students}</h2>
+                <p>Total Students</p>
+            `;
+            kpiContainer.appendChild(totalStudentsKPI);
+
+            // Total Entries KPI
+            const totalEntriesKPI = document.createElement('div');
+            totalEntriesKPI.className = 'kpi-card';
+            totalEntriesKPI.innerHTML = `
+                <h2>${data.total_entries}</h2>
+                <p>Total Entries</p>
+            `;
+            kpiContainer.appendChild(totalEntriesKPI);
+
+            // Total Exits KPI
+            const totalExitsKPI = document.createElement('div');
+            totalExitsKPI.className = 'kpi-card';
+            totalExitsKPI.innerHTML = `
+                <h2>${data.total_exits}</h2>
+                <p>Total Exits</p>
+            `;
+            kpiContainer.appendChild(totalExitsKPI);
+
+            // You can add more KPIs as needed
+        }
+
+        // Fetch and render Students Over Time chart
+        function fetchStudentsOverTime() {
+            const videoId = document.getElementById('video-id').value;
+            let url = `/analytics/students_over_time`;
+            if (videoId) {
+                url += `?video_id=${videoId}`;
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    renderStudentsOverTimeChart(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching students over time data:', error);
+                });
+        }
+
+        function renderStudentsOverTimeChart(data) {
+            const trace = {
+                x: data.timestamps,
+                y: data.counts,
+                type: 'scatter',
+                mode: 'lines+markers',
+                marker: { color: '#3b5998' }
+            };
+
+            const layout = {
+                responsive: true,
+                autosize: true,
+                margin: { t: 30, b: 50, l: 50, r: 30 },
+                xaxis: { title: 'Time' },
+                yaxis: { title: 'Total Students' }
+            };
+
+            Plotly.newPlot('students-over-time-chart', [trace], layout);
+        }
+
+        // Fetch and render Heatmap chart
+        function fetchHeatmapData() {
+            const videoId = document.getElementById('video-id').value;
+            let url = `/analytics/heatmap_data`;
+            if (videoId) {
+                url += `?video_id=${videoId}`;
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    renderHeatmapChart(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching heatmap data:', error);
+                });
+        }
+
+        function renderHeatmapChart(data) {
+            const trace = {
+                z: data.counts,
+                x: data.hours,
+                y: data.days,
+                type: 'heatmap',
+                colorscale: 'Viridis'
+            };
+
+            const layout = {
+                responsive: true,
+                autosize: true,
+                margin: { t: 30, b: 50, l: 50, r: 30 },
+                xaxis: { title: 'Hour of Day' },
+                yaxis: { title: 'Day of Week' }
+            };
+
+            Plotly.newPlot('heatmap-chart', [trace], layout);
+        }
+
+        // Fetch and render Stage Comparison chart
+        function fetchStageComparisonData() {
+            const videoId = document.getElementById('video-id').value;
+            let url = `/analytics/stage_comparison_data`;
+            if (videoId) {
+                url += `?video_id=${videoId}`;
+            }
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    renderStageComparisonChart(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching stage comparison data:', error);
+                });
+        }
+
+        function renderStageComparisonChart(data) {
+            const stages = data.stages;
+            const entryCounts = data.entry_counts;
+            const exitCounts = data.exit_counts;
+
+            const trace1 = {
+                x: stages,
+                y: entryCounts,
+                name: 'Entries',
+                type: 'bar',
+                marker: { color: '#3b5998' }
+            };
+
+            const trace2 = {
+                x: stages,
+                y: exitCounts,
+                name: 'Exits',
+                type: 'bar',
+                marker: { color: '#8b9dc3' }
+            };
+
+            const layout = {
+                barmode: 'group',
+                responsive: true,
+                autosize: true,
+                margin: { t: 30, b: 50, l: 50, r: 30 },
+                xaxis: { title: 'Educational Stage' },
+                yaxis: { title: 'Count' }
+            };
+
+            Plotly.newPlot('stage-comparison-chart', [trace1, trace2], layout);
+        }
+
+        // Load initial data when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            fetchVideos();
+            fetchData();
+        });
+
+        // Update data when filters are applied
+        document.getElementById('filter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            fetchData();
+        });
+    </script>
+    <script src="https://cdn.socket.io/4.5.0/socket.io.min.js"></script>
+<script>
+  const socket = io();
+  socket.on('analytics_update', data => {
+    renderKPIs(data);
+    renderStudentsOverTimeChart(data.students_over_time);
+    renderHeatmapChart(data.heatmap);
+    renderStageComparisonChart(data.stage_comparison);
+  });
+</script>
+
+</body>
+</html>
