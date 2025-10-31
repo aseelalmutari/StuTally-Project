@@ -6,14 +6,14 @@ Thank you for your interest in contributing to StuTally! We welcome all types of
 
 ## 📋 Table of Contents
 
-1. [Code of Conduct](#code-of-conduct)
-2. [How Can I Contribute?](#how-can-i-contribute)
-3. [Reporting Bugs](#reporting-bugs)
-4. [Suggesting New Features](#suggesting-new-features)
-5. [Contribution Workflow](#contribution-workflow)
-6. [Coding Standards](#coding-standards)
-7. [Writing Tests](#writing-tests)
-8. [Code Documentation](#code-documentation)
+1. [Code of Conduct](#-code-of-conduct)
+2. [How Can I Contribute?](#-how-can-i-contribute)
+3. [Reporting Bugs](#-reporting-bugs)
+4. [Suggesting New Features](#-suggesting-new-features)
+5. [Contribution Workflow](#-contribution-workflow)
+6. [Coding Standards](#-coding-standards)
+7. [Writing Tests](#-writing-tests)
+8. [Code Documentation](#-code-documentation)
 
 ---
 
@@ -655,6 +655,6 @@ Thank you to all [contributors](https://github.com/aseelalmutari/StuTally-Projec
 
 **Made with ❤️ by the StuTally Community**
 
-[⬆️ Back to Top](#-contributing-guide-to-stutally)
+[⬆️ Back to Top](#-contributing-guide-to-stutally-1)
 
 </div>
