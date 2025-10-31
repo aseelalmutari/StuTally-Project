@@ -1,207 +1,207 @@
-# 🤝 دليل المساهمة في StuTally
+# 🤝 Contributing Guide to StuTally
 
-شكراً لاهتمامك بالمساهمة في مشروع StuTally! نرحب بجميع أنواع المساهمات سواء كانت إصلاح أخطاء، إضافة ميزات جديدة، تحسين التوثيق، أو حتى الإبلاغ عن المشاكل.
-
----
-
-## 📋 جدول المحتويات
-
-1. [قواعد السلوك](#قواعد-السلوك)
-2. [كيف يمكنني المساهمة؟](#كيف-يمكنني-المساهمة)
-3. [الإبلاغ عن الأخطاء](#الإبلاغ-عن-الأخطاء)
-4. [اقتراح ميزات جديدة](#اقتراح-ميزات-جديدة)
-5. [سير عمل المساهمة](#سير-عمل-المساهمة)
-6. [معايير البرمجة](#معايير-البرمجة)
-7. [كتابة الاختبارات](#كتابة-الاختبارات)
-8. [توثيق الكود](#توثيق-الكود)
+Thank you for your interest in contributing to StuTally! We welcome all types of contributions, whether it's fixing bugs, adding new features, improving documentation, or even reporting issues.
 
 ---
 
-## 🌟 قواعد السلوك
+## 📋 Table of Contents
 
-### تعهدنا
-
-نحن ملتزمون بتوفير بيئة ترحيبية وشاملة لجميع المساهمين. نتوقع من الجميع:
-
-- استخدام لغة ترحيبية وشاملة
-- احترام وجهات النظر والتجارب المختلفة
-- قبول النقد البنّاء بلطف
-- التركيز على ما هو أفضل للمجتمع
-- إظهار التعاطف تجاه أعضاء المجتمع الآخرين
-
----
-
-## 🎯 كيف يمكنني المساهمة؟
-
-هناك عدة طرق للمساهمة في StuTally:
-
-### 1. الإبلاغ عن الأخطاء 🐛
-
-إذا وجدت خطأً:
-- تأكد من أنه لم يتم الإبلاغ عنه مسبقاً في [Issues](https://github.com/aseelalmutari/StuTally-Project/issues)
-- افتح Issue جديد مع وصف تفصيلي
-- قدم معلومات كافية لإعادة إنتاج المشكلة
-
-### 2. إصلاح الأخطاء 🔧
-
-- تصفح [Issues](https://github.com/aseelalmutari/StuTally-Project/issues) للعثور على أخطاء للإصلاح
-- الأخطاء المُعلمة بـ `good first issue` مناسبة للمبتدئين
-
-### 3. إضافة ميزات جديدة ✨
-
-- تحقق من [خارطة الطريق](README.md#-خارطة-الطريق-roadmap)
-- اقترح ميزات جديدة عبر فتح Issue
-- تأكد من أن الميزة تتماشى مع أهداف المشروع
-
-### 4. تحسين التوثيق 📚
-
-- إصلاح الأخطاء الإملائية أو النحوية
-- إضافة أمثلة جديدة
-- توضيح أجزاء غير واضحة
-- ترجمة التوثيق إلى لغات أخرى
-
-### 5. مراجعة الكود 👀
-
-- راجع Pull Requests المفتوحة
-- اختبر التغييرات محلياً
-- قدم ملاحظات بنّاءة
+1. [Code of Conduct](#code-of-conduct)
+2. [How Can I Contribute?](#how-can-i-contribute)
+3. [Reporting Bugs](#reporting-bugs)
+4. [Suggesting New Features](#suggesting-new-features)
+5. [Contribution Workflow](#contribution-workflow)
+6. [Coding Standards](#coding-standards)
+7. [Writing Tests](#writing-tests)
+8. [Code Documentation](#code-documentation)
 
 ---
 
-## 🐛 الإبلاغ عن الأخطاء
+## 🌟 Code of Conduct
 
-### قبل الإبلاغ
+### Our Commitment
 
-1. **ابحث في Issues الموجودة**: تأكد من أن المشكلة لم يتم الإبلاغ عنها
-2. **تحديث للأحدث**: تأكد من استخدامك أحدث إصدار
-3. **تحقق من التوثيق**: قد يكون الحل موثقاً
+We are committed to providing a welcoming and inclusive environment for all contributors. We expect everyone to:
 
-### كيفية كتابة تقرير خطأ جيد
+- Use welcoming and inclusive language
+- Respect different viewpoints and experiences
+- Accept constructive criticism gracefully
+- Focus on what is best for the community
+- Show empathy towards other community members
 
-استخدم القالب التالي:
+---
+
+## 🎯 How Can I Contribute?
+
+There are several ways to contribute to StuTally:
+
+### 1. Reporting Bugs 🐛
+
+If you find a bug:
+- Check if it hasn't been reported in [Issues](https://github.com/aseelalmutari/StuTally-Project/issues)
+- Open a new Issue with a detailed description
+- Provide sufficient information to reproduce the problem
+
+### 2. Fixing Bugs 🔧
+
+- Browse [Issues](https://github.com/aseelalmutari/StuTally-Project/issues) to find bugs to fix
+- Issues labeled with `good first issue` are suitable for beginners
+
+### 3. Adding New Features ✨
+
+- Check the [Roadmap](README.md#-roadmap)
+- Suggest new features by opening an Issue
+- Ensure the feature aligns with project goals
+
+### 4. Improving Documentation 📚
+
+- Fix spelling or grammatical errors
+- Add new examples
+- Clarify unclear parts
+- Translate documentation to other languages
+
+### 5. Code Reviews 👀
+
+- Review open Pull Requests
+- Test changes locally
+- Provide constructive feedback
+
+---
+
+## 🐛 Reporting Bugs
+
+### Before Reporting
+
+1. **Search existing Issues**: Make sure the problem hasn't been reported
+2. **Update to latest**: Ensure you're using the latest version
+3. **Check documentation**: The solution might be documented
+
+### How to Write a Good Bug Report
+
+Use the following template:
 
 ```markdown
-## وصف المشكلة
-[وصف واضح ومختصر للمشكلة]
+## Problem Description
+[Clear and concise description of the problem]
 
-## خطوات إعادة الإنتاج
-1. اذهب إلى '...'
-2. انقر على '...'
-3. قم بـ '...'
-4. شاهد الخطأ
+## Steps to Reproduce
+1. Go to '...'
+2. Click on '...'
+3. Do '...'
+4. See error
 
-## السلوك المتوقع
-[ما كان يجب أن يحدث]
+## Expected Behavior
+[What should have happened]
 
-## السلوك الفعلي
-[ما حدث فعلياً]
+## Actual Behavior
+[What actually happened]
 
-## لقطات الشاشة
-[إن وُجدت]
+## Screenshots
+[If applicable]
 
-## البيئة
-- نظام التشغيل: [مثل: macOS 13.0, Windows 11, Ubuntu 22.04]
-- إصدار Python: [مثل: 3.10.5]
-- إصدار StuTally: [مثل: 2.0]
-- CUDA/GPU: [نعم/لا، الإصدار]
+## Environment
+- Operating System: [e.g., macOS 13.0, Windows 11, Ubuntu 22.04]
+- Python Version: [e.g., 3.10.5]
+- StuTally Version: [e.g., 2.0]
+- CUDA/GPU: [Yes/No, Version]
 
-## معلومات إضافية
-[أي معلومات أخرى قد تكون مفيدة]
+## Additional Information
+[Any other information that might be useful]
 
-## السجلات (Logs)
+## Logs
 ```
-[ألصق السجلات من logs/app.log]
+[Paste logs from logs/app.log]
 ```
 ```
 
 ---
 
-## 💡 اقتراح ميزات جديدة
+## 💡 Suggesting New Features
 
-### قبل الاقتراح
+### Before Suggesting
 
-1. تحقق من [خارطة الطريق](README.md#-خارطة-الطريق-roadmap)
-2. ابحث في Issues للتأكد من عدم اقتراحها مسبقاً
-3. فكر في التوافق مع أهداف المشروع
+1. Check the [Roadmap](README.md#-roadmap)
+2. Search Issues to ensure it hasn't been suggested before
+3. Consider compatibility with project goals
 
-### كيفية كتابة اقتراح ميزة جيد
+### How to Write a Good Feature Proposal
 
 ```markdown
-## الملخص
-[وصف مختصر للميزة المقترحة]
+## Summary
+[Brief description of proposed feature]
 
-## الدافع
-[لماذا هذه الميزة مفيدة؟]
+## Motivation
+[Why is this feature useful?]
 
-## الحل المقترح
-[كيف يجب أن تعمل الميزة؟]
+## Proposed Solution
+[How should the feature work?]
 
-## البدائل المعتبرة
-[هل هناك طرق بديلة لتحقيق نفس الهدف؟]
+## Alternatives Considered
+[Are there alternative ways to achieve the same goal?]
 
-## معلومات إضافية
-[مخططات، أمثلة، روابط، إلخ]
+## Additional Information
+[Diagrams, examples, links, etc.]
 ```
 
 ---
 
-## 🔄 سير عمل المساهمة
+## 🔄 Contribution Workflow
 
-### 1. Fork المشروع
+### 1. Fork the Project
 
 ```bash
-# انقر على زر "Fork" في GitHub
-# ثم استنسخ نسختك
+# Click "Fork" button on GitHub
+# Then clone your fork
 git clone https://github.com/YOUR_USERNAME/StuTally.git
 cd StuTally
 ```
 
-### 2. إعداد البيئة المحلية
+### 2. Set Up Local Environment
 
 ```bash
-# إنشاء بيئة افتراضية
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # على Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 
-# تثبيت المتطلبات
+# Install dependencies
 pip install -r requirements.txt
 
-# نسخ ملف البيئة
+# Copy environment file
 cp .env.example .env
-# عدّل .env حسب الحاجة
+# Edit .env as needed
 ```
 
-### 3. إنشاء فرع جديد
+### 3. Create a New Branch
 
 ```bash
-# إنشاء فرع من main
+# Create branch from main
 git checkout -b feature/your-feature-name
 
-# أو لإصلاح خطأ
+# Or for bug fix
 git checkout -b fix/bug-description
 ```
 
-**تسمية الفروع**:
-- `feature/` - للميزات الجديدة
-- `fix/` - لإصلاح الأخطاء
-- `docs/` - لتحديثات التوثيق
-- `refactor/` - لإعادة الهيكلة
-- `test/` - لإضافة/تحديث الاختبارات
+**Branch Naming**:
+- `feature/` - For new features
+- `fix/` - For bug fixes
+- `docs/` - For documentation updates
+- `refactor/` - For refactoring
+- `test/` - For adding/updating tests
 
-### 4. إجراء التعديلات
+### 4. Make Changes
 
 ```bash
-# قم بالتعديلات المطلوبة
+# Make required changes
 # ...
 
-# أضف الملفات المعدلة
+# Add modified files
 git add .
 
-# التزم بالتغييرات مع رسالة وصفية
+# Commit changes with descriptive message
 git commit -m "Add: feature description"
 ```
 
-**صيغة رسائل Commit**:
+**Commit Message Format**:
 ```
 <type>: <description>
 
@@ -210,18 +210,18 @@ git commit -m "Add: feature description"
 [optional footer]
 ```
 
-**الأنواع المتاحة**:
-- `Add`: إضافة ميزة جديدة
-- `Fix`: إصلاح خطأ
-- `Update`: تحديث ميزة موجودة
-- `Refactor`: إعادة هيكلة الكود
-- `Docs`: تحديث التوثيق
-- `Test`: إضافة/تحديث اختبارات
-- `Style`: تغييرات تنسيقية
-- `Perf`: تحسين الأداء
-- `Chore`: مهام صيانة
+**Available Types**:
+- `Add`: Add new feature
+- `Fix`: Fix bug
+- `Update`: Update existing feature
+- `Refactor`: Code restructuring
+- `Docs`: Update documentation
+- `Test`: Add/update tests
+- `Style`: Formatting changes
+- `Perf`: Performance improvement
+- `Chore`: Maintenance tasks
 
-**أمثلة**:
+**Examples**:
 ```bash
 git commit -m "Add: support for RTSP camera streaming"
 git commit -m "Fix: video feed not loading on Safari browser"
@@ -229,73 +229,73 @@ git commit -m "Update: improve YOLO detection accuracy"
 git commit -m "Docs: add API documentation for analytics endpoints"
 ```
 
-### 5. اختبار التغييرات
+### 5. Test Changes
 
 ```bash
-# تشغيل الاختبارات
+# Run tests
 python -m pytest tests/
 
-# تشغيل التطبيق للتأكد من عمله
+# Run application to ensure it works
 python run.py
 ```
 
-### 6. Push للمستودع
+### 6. Push to Repository
 
 ```bash
-# رفع الفرع لـ fork الخاص بك
+# Push branch to your fork
 git push origin feature/your-feature-name
 ```
 
-### 7. فتح Pull Request
+### 7. Open Pull Request
 
-1. اذهب إلى المستودع الأصلي على GitHub
-2. انقر على "New Pull Request"
-3. اختر فرعك
-4. املأ قالب PR بالمعلومات المطلوبة
-5. انتظر المراجعة
+1. Go to the original repository on GitHub
+2. Click "New Pull Request"
+3. Select your branch
+4. Fill in PR template with required information
+5. Wait for review
 
-**قالب Pull Request**:
+**Pull Request Template**:
 ```markdown
-## الوصف
-[وصف مختصر للتغييرات]
+## Description
+[Brief description of changes]
 
-## النوع
-- [ ] إصلاح خطأ (Bug fix)
-- [ ] ميزة جديدة (New feature)
-- [ ] تحديث توثيق (Documentation update)
-- [ ] إعادة هيكلة (Refactoring)
-- [ ] آخر: ___________
+## Type
+- [ ] Bug fix
+- [ ] New feature
+- [ ] Documentation update
+- [ ] Refactoring
+- [ ] Other: ___________
 
-## التغييرات
-- تغيير 1
-- تغيير 2
+## Changes
+- Change 1
+- Change 2
 - ...
 
-## الاختبار
-[كيف تم اختبار التغييرات؟]
+## Testing
+[How were changes tested?]
 
-## لقطات الشاشة
-[إن وُجدت]
+## Screenshots
+[If applicable]
 
 ## Checklist
-- [ ] الكود يتبع أسلوب المشروع
-- [ ] أضفت تعليقات، خاصة في المناطق المعقدة
-- [ ] حدّثت التوثيق إن لزم الأمر
-- [ ] لم أُضِف warnings جديدة
-- [ ] أضفت اختبارات لإثبات أن الإصلاح/الميزة تعمل
-- [ ] جميع الاختبارات الجديدة والقديمة تمر بنجاح
+- [ ] Code follows project style
+- [ ] Added comments, especially in complex areas
+- [ ] Updated documentation if needed
+- [ ] Didn't add new warnings
+- [ ] Added tests to prove fix/feature works
+- [ ] All new and existing tests pass
 ```
 
 ---
 
-## 📝 معايير البرمجة
+## 📝 Coding Standards
 
-### أسلوب Python
+### Python Style
 
-نتبع [PEP 8](https://www.python.org/dev/peps/pep-0008/) مع بعض الاستثناءات:
+We follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) with some exceptions:
 
 ```python
-# ✅ جيد
+# ✅ Good
 def process_video_frame(frame, model_name, confidence_threshold=0.5):
     """
     Process a single video frame using YOLO detection.
@@ -311,39 +311,39 @@ def process_video_frame(frame, model_name, confidence_threshold=0.5):
     # Implementation
     pass
 
-# ❌ سيء
+# ❌ Bad
 def ProcessVideoFrame(Frame,ModelName,confidence_threshold=0.5):
     # No docstring
     pass
 ```
 
-### تنظيم الملفات
+### File Organization
 
 ```python
-# ترتيب Imports
-# 1. مكتبات Python القياسية
+# Import Order
+# 1. Standard library
 import os
 import sys
 from datetime import datetime
 
-# 2. مكتبات خارجية
+# 2. Third-party libraries
 import cv2
 import numpy as np
 from flask import Flask, render_template
 
-# 3. مكتبات محلية
+# 3. Local libraries
 from app.services import video_service
 from database import init_db
 ```
 
-### التسمية
+### Naming
 
-- **Classes**: `PascalCase` - مثل `VideoService`, `ModelLoader`
-- **Functions/Methods**: `snake_case` - مثل `process_video()`, `get_analytics()`
-- **Constants**: `UPPER_SNAKE_CASE` - مثل `MAX_FILE_SIZE`, `DEFAULT_MODEL`
-- **Private**: `_leading_underscore` - مثل `_internal_method()`
+- **Classes**: `PascalCase` - e.g., `VideoService`, `ModelLoader`
+- **Functions/Methods**: `snake_case` - e.g., `process_video()`, `get_analytics()`
+- **Constants**: `UPPER_SNAKE_CASE` - e.g., `MAX_FILE_SIZE`, `DEFAULT_MODEL`
+- **Private**: `_leading_underscore` - e.g., `_internal_method()`
 
-### التعليقات والتوثيق
+### Comments and Documentation
 
 ```python
 def calculate_iou(box1, box2):
@@ -373,10 +373,10 @@ def calculate_iou(box1, box2):
     pass
 ```
 
-### معالجة الأخطاء
+### Error Handling
 
 ```python
-# ✅ جيد
+# ✅ Good
 try:
     result = process_video(video_path)
 except FileNotFoundError as e:
@@ -386,7 +386,7 @@ except Exception as e:
     logger.error(f"Error processing video: {e}", exc_info=True)
     return None
 
-# ❌ سيء
+# ❌ Bad
 try:
     result = process_video(video_path)
 except:
@@ -395,21 +395,21 @@ except:
 
 ---
 
-## 🧪 كتابة الاختبارات
+## 🧪 Writing Tests
 
-### بنية الاختبارات
+### Test Structure
 
 ```
 tests/
 ├── __init__.py
 ├── conftest.py              # Pytest fixtures
-├── test_models.py           # اختبارات النماذج
-├── test_services.py         # اختبارات الخدمات
-├── test_api.py              # اختبارات API
-└── test_database.py         # اختبارات قاعدة البيانات
+├── test_models.py           # Model tests
+├── test_services.py         # Service tests
+├── test_api.py              # API tests
+└── test_database.py         # Database tests
 ```
 
-### مثال اختبار
+### Example Test
 
 ```python
 import pytest
@@ -446,32 +446,32 @@ class TestVideoService:
             service.load_video('nonexistent_video.mp4')
 ```
 
-### تشغيل الاختبارات
+### Running Tests
 
 ```bash
-# تشغيل جميع الاختبارات
+# Run all tests
 pytest
 
-# تشغيل ملف محدد
+# Run specific file
 pytest tests/test_services.py
 
-# تشغيل اختبار محدد
+# Run specific test
 pytest tests/test_services.py::TestVideoService::test_video_loading
 
-# مع تغطية الكود
+# With code coverage
 pytest --cov=app tests/
 
-# مع تقرير HTML
+# With HTML report
 pytest --cov=app --cov-report=html tests/
 ```
 
 ---
 
-## 📖 توثيق الكود
+## 📖 Code Documentation
 
 ### Docstrings
 
-استخدم صيغة Google Style:
+Use Google Style format:
 
 ```python
 def get_analytics_data(video_id=None, time_range='all', filters=None):
@@ -520,31 +520,31 @@ def get_analytics_data(video_id=None, time_range='all', filters=None):
     pass
 ```
 
-### التعليقات في الكود
+### Comments in Code
 
 ```python
-# ✅ جيد - تعليق يشرح "لماذا"
-# تخطي 3 إطارات لتحسين الأداء مع الحفاظ على دقة التتبع
+# ✅ Good - comment explains "why"
+# Skip 3 frames to improve performance while maintaining tracking accuracy
 if frame_count % 3 != 0:
     continue
 
-# ✅ جيد - تعليق لشرح خوارزمية معقدة
-# استخدام Kalman Filter للتنبؤ بموقع الكائن في الإطار التالي
+# ✅ Good - comment to explain complex algorithm
+# Use Kalman Filter to predict object position in next frame
 predicted_position = kalman_filter.predict(current_position)
 
-# ❌ سيء - تعليق يشرح "ماذا" (واضح من الكود)
-# زيادة العداد
+# ❌ Bad - comment explains "what" (clear from code)
+# Increment counter
 counter += 1
 ```
 
 ---
 
-## 🎨 معايير الواجهة الأمامية
+## 🎨 Frontend Standards
 
 ### HTML/CSS
 
 ```html
-<!-- ✅ جيد -->
+<!-- ✅ Good -->
 <div class="video-container">
     <video id="videoFeed" class="video-stream" autoplay></video>
     <div class="video-controls">
@@ -552,7 +552,7 @@ counter += 1
     </div>
 </div>
 
-<!-- ❌ سيء -->
+<!-- ❌ Bad -->
 <div style="width:100%;height:auto">
     <video id="v1" autoplay></video>
     <button onclick="play()">Play</button>
@@ -562,7 +562,7 @@ counter += 1
 ### JavaScript
 
 ```javascript
-// ✅ جيد
+// ✅ Good
 class VideoPlayer {
     constructor(videoElement) {
         this.video = videoElement;
@@ -582,7 +582,7 @@ class VideoPlayer {
     }
 }
 
-// ❌ سيء
+// ❌ Bad
 function play() {
     var v = document.getElementById('v1');
     v.play();
@@ -591,42 +591,42 @@ function play() {
 
 ---
 
-## 🏷️ إصدارات البرنامج (Versioning)
+## 🏷️ Versioning
 
-نتبع [Semantic Versioning](https://semver.org/):
+We follow [Semantic Versioning](https://semver.org/):
 
 ```
 MAJOR.MINOR.PATCH
 
-مثال: 2.1.3
+Example: 2.1.3
 ```
 
-- **MAJOR**: تغييرات غير متوافقة مع الإصدارات السابقة
-- **MINOR**: إضافة ميزات جديدة متوافقة
-- **PATCH**: إصلاحات أخطاء متوافقة
+- **MAJOR**: Breaking changes incompatible with previous versions
+- **MINOR**: New features compatible with existing code
+- **PATCH**: Bug fixes compatible with existing code
 
 ---
 
-## 📦 إصدار نسخة جديدة
+## 📦 Releasing a New Version
 
-### قائمة التحقق (للمشرفين فقط)
+### Checklist (Admins Only)
 
-1. تحديث رقم الإصدار في `version.py`
-2. تحديث `CHANGELOG.md`
-3. تشغيل جميع الاختبارات
-4. عمل commit للتغييرات
-5. إنشاء tag للإصدار
-6. Push للمستودع مع tags
+1. Update version number in `version.py`
+2. Update `CHANGELOG.md`
+3. Run all tests
+4. Commit changes
+5. Create version tag
+6. Push to repository with tags
 
 ```bash
-# تحديث الإصدار
+# Update version
 echo "__version__ = '2.1.0'" > app/version.py
 
 # Commit
 git add .
 git commit -m "Release: version 2.1.0"
 
-# إنشاء Tag
+# Create Tag
 git tag -a v2.1.0 -m "Version 2.1.0 - Feature updates"
 
 # Push
@@ -635,27 +635,26 @@ git push origin main --tags
 
 ---
 
-## ❓ أسئلة؟
+## ❓ Questions?
 
-إذا كان لديك أي أسئلة حول المساهمة:
+If you have any questions about contributing:
 
-- 💬 افتح [Discussion](https://github.com/aseelalmutari/StuTally-Project/discussions)
-- 📧 راسلنا على: your.email@example.com
-- 📖 راجع [التوثيق](README.md)
+- 💬 Open [Discussion](https://github.com/aseelalmutari/StuTally-Project/discussions)
+- 📧 Email us at: caa73061@gmail.com
+- 📖 Check [Documentation](README.md)
 
 ---
 
-## 🙏 شكر خاص
+## 🙏 Special Thanks
 
-شكراً لجميع [المساهمين](https://github.com/aseelalmutari/StuTally-Project/graphs/contributors) الذين ساعدوا في تطوير StuTally!
+Thank you to all [contributors](https://github.com/aseelalmutari/StuTally-Project/graphs/contributors) who helped develop StuTally!
 
 ---
 
 <div align="center">
 
-**صُنع بـ ❤️ بواسطة مجتمع StuTally**
+**Made with ❤️ by the StuTally Community**
 
-[⬆️ العودة للأعلى](#-دليل-المساهمة-في-stutally)
+[⬆️ Back to Top](#-contributing-guide-to-stutally)
 
 </div>
-
